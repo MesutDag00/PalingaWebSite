@@ -6,11 +6,11 @@ import { Menu, X } from "lucide-react";
 import Button from "./ui/Button";
 
 const navLinks = [
-  { label: "Vizyon", href: "#vizyon" },
-  { label: "Platform", href: "#platform" },
-  { label: "Klinikler", href: "#kimler-kullanir" },
-  { label: "Haberler", href: "#haberler" },
-  { label: "Hakkımızda", href: "#hakkimizda" },
+  { label: "Platform", href: "#urun-mimarisi" },
+  { label: "Klinik Temel", href: "#klinik-temel" },
+  { label: "Sayılar", href: "#sayilar" },
+  { label: "Güvenlik", href: "#guvenlik" },
+  { label: "İletişim", href: "#demo" },
 ];
 
 export default function Navbar() {

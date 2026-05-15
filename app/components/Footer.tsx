@@ -1,21 +1,49 @@
 import Image from "next/image";
 
-const columns = [
+interface FooterLink {
+  label: string;
+  href: string;
+}
+
+interface FooterColumn {
+  title: string;
+  links: FooterLink[];
+}
+
+const columns: FooterColumn[] = [
   {
     title: "Platform",
-    links: ["Özellikler", "Nasıl Çalışır", "Entegrasyonlar", "Güvenlik"],
+    links: [
+      { label: "Ürün Mimarisi", href: "#urun-mimarisi" },
+      { label: "Klinik Temel", href: "#klinik-temel" },
+      { label: "Güvenlik", href: "#guvenlik" },
+      { label: "Sayılarla Platform", href: "#sayilar" },
+    ],
   },
   {
     title: "Çözümler",
-    links: ["Klinikler İçin", "Terapistler İçin", "Hastalar İçin", "Kurumsal"],
+    links: [
+      { label: "Klinikler İçin", href: "/klinikler" },
+      { label: "Terapistler İçin", href: "/terapistler" },
+      { label: "Hastalar İçin", href: "/hastalar" },
+      { label: "Demo Talep Et", href: "#demo" },
+    ],
   },
   {
     title: "Şirket",
-    links: ["Hakkımızda", "Blog", "Kariyer", "İletişim"],
+    links: [
+      { label: "Hakkımızda", href: "#ekip" },
+      { label: "İletişim", href: "#demo" },
+      { label: "Aphasia Reverbis", href: "#urun-mimarisi" },
+    ],
   },
   {
     title: "Destek",
-    links: ["Belgeler", "Yardım Merkezi", "Demo Talep Et", "SSS"],
+    links: [
+      { label: "KVKK Aydınlatma", href: "/kvkk" },
+      { label: "Gizlilik Politikası", href: "/gizlilik" },
+      { label: "Kullanım Şartları", href: "/kullanim-sartlari" },
+    ],
   },
 ];
 
@@ -47,12 +75,12 @@ export default function Footer() {
               </h4>
               <ul>
                 {col.links.map((link) => (
-                  <li key={link} style={{ lineHeight: 2.4 }}>
+                  <li key={link.label} style={{ lineHeight: 2.4 }}>
                     <a
-                      href="#"
-                      className="text-[17px] font-normal text-ink-muted hover:text-ink transition-colors duration-150 tracking-[-0.022em]"
+                      href={link.href}
+                      className="text-[15px] font-normal text-ink-muted hover:text-ink transition-colors duration-150 tracking-[-0.022em]"
                     >
-                      {link}
+                      {link.label}
                     </a>
                   </li>
                 ))}
@@ -64,9 +92,9 @@ export default function Footer() {
         <div className="mt-14 pt-6 border-t border-hairline flex flex-col sm:flex-row items-center justify-between gap-3 text-[12px] text-ink-muted">
           <span>© {new Date().getFullYear()} Palinga Sağlık Teknolojileri. Tüm hakları saklıdır.</span>
           <div className="flex items-center gap-5">
-            <a href="#" className="hover:text-ink transition-colors">KVKK</a>
-            <a href="#" className="hover:text-ink transition-colors">Gizlilik Politikası</a>
-            <a href="#" className="hover:text-ink transition-colors">Kullanım Şartları</a>
+            <a href="/kvkk" className="hover:text-ink transition-colors">KVKK</a>
+            <a href="/gizlilik" className="hover:text-ink transition-colors">Gizlilik Politikası</a>
+            <a href="/kullanim-sartlari" className="hover:text-ink transition-colors">Kullanım Şartları</a>
           </div>
         </div>
       </div>
